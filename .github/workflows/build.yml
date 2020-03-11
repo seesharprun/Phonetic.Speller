@@ -8,6 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/dotnet/core/sdk:3.1
+    env:
+      NUGET_PUSHKEY: ${{ secrets.NUGET_PUSHKEY }}
     steps:
       - uses: actions/checkout@v2
-      - run: dotnet --version
+      - run: dotnet pack --output pkg
+      - run: dotnet nuget push --source https://api.nuget.org/v3/index.json --api-key $NUGET_PUSHKEY --skip-duplicate
