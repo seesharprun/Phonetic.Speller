@@ -1,13 +1,12 @@
 name: Create NuGet Package
 on: 
+  pull_request:
   push:
     branches:
     - master
-runs-on: ubuntu-latest
 jobs:
-  dotnet_pack:
-    name: Package .NET project
-      steps:
-        - uses: actions/checkout@v2
-        - name: Echo message
-          run: echo 'Hello, World!'
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo 'Hello, World!'
