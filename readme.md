@@ -18,9 +18,13 @@ public class Program
         var speller = new PhoneticSpeller();
         var spelling = speller.GetSpelling("Hello", "World");
 
-        foreach((char letter, string nato) in spelling)
+        foreach((string word, var breakdown) in spelling)
         {
-            System.Console.WriteLine($"[{letter}]\t{nato}");
+            System.Console.WriteLine($"\n{word}");
+            foreach((char letter, string nato) in breakdown)
+            {
+                System.Console.WriteLine($"[{letter}]\t{nato}");
+            }
         }
     }
 }

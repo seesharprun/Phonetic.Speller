@@ -18,9 +18,10 @@ jobs:
         working-directory: pkg
         run: dotnet nuget push *.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_PUSHKEY }} --skip-duplicate
       - name: Get XML
+        id: parse_xml
         uses: mavrosxristoforos/get-xml-info@1.0
         with:
           xml-file: Phonetic.Speller.csproj
           xpath: //Project//PropertyGroup//Version
       - name: Print Version
-        run: echo 'Version ${{ steps.getxml.outputs.info }}'
+        run: echo 'Version ${{ steps.parse_xml.outputs.info }}'
