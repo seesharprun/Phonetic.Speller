@@ -9,8 +9,6 @@ jobs:
     name: Package and Push to NuGet
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/dotnet/core/sdk:3.1
-    env:
-      NUGET_PUSHKEY: ${{ secrets.NUGET_PUSHKEY }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -18,4 +16,10 @@ jobs:
         run: dotnet pack --output pkg
       - name: Push Package to NuGet.org
         working-directory: pkg
-        run: dotnet nuget push *.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_PUSHKEY --skip-duplicate
+        run: dotnet nuget push *.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_PUSHKEY }} --skip-duplicate
+      - name: Get XML
+        uses: mavrosxristoforos/get-xml-info@1.0
+        with:
+          xml-file: Phonetic.Speller.csproj
+          xpath: //Project//PropertyGroup//Version
+      - run: echo 'Version: ${{ steps.getxml.outputs.info }}'
