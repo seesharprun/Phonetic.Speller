@@ -46,7 +46,7 @@ The spelling breakdown for each word includes a collection of pairs of character
 
 For example, the parameters ``"Hello", "Word"`` would return:
 
-**Word**: ``Hello``
+**Word**: *Hello*
 
 | Character | NATO |
 | --- | --- |
@@ -56,7 +56,7 @@ For example, the parameters ``"Hello", "Word"`` would return:
 | L | Lima | 
 | O | Oscar |
 
-**Word**: ``World``
+**Word**: *World*
 
 | Character | NATO |
 | --- | --- |
