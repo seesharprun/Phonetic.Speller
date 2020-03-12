@@ -46,23 +46,22 @@ The spelling breakdown for each word includes a collection of pairs of character
 
 For example, the parameters ``"Hello", "Word"`` would return:
 
-- **Word**: "Hello"
-    - **Word**: ``Hello``
-    - **Breakdown**:
-        | Character | NATO |
-        | --- | --- |
-        | H | Hotel |
-        | E | Echo |
-        | L | Lima | 
-        | L | Lima | 
-        | O | Oscar |
-- **Input**: "World"
-    - **Word**: ``World``
-    - **Breakdown**:
-        | Character | NATO |
-        | --- | --- |
-        | W | Whiskey |
-        | O | Oscar |
-        | R | Romeo |
-        | L | Lima |
-        | D | Delta | 
+**Word**: ``Hello``
+
+| Character | NATO |
+| --- | --- |
+| H | Hotel |
+| E | Echo |
+| L | Lima | 
+| L | Lima | 
+| O | Oscar |
+
+**Word**: ``World``
+
+| Character | NATO |
+| --- | --- |
+| W | Whiskey |
+| O | Oscar |
+| R | Romeo |
+| L | Lima |
+| D | Delta | 
