@@ -1,16 +1,21 @@
-name: Create NuGet Package
+name: Continuous NuGet Deployment
 on: 
   pull_request:
   push:
     branches:
     - master
 jobs:
-  build:
+  nuget:
+    name: Package and Push to NuGet
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/dotnet/core/sdk:3.1
     env:
       NUGET_PUSHKEY: ${{ secrets.NUGET_PUSHKEY }}
     steps:
-      - uses: actions/checkout@v2
-      - run: dotnet pack --output pkg
-      - run: dotnet nuget push pkg\*.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_PUSHKEY --skip-duplicate
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Create NuGet Package
+        run: dotnet pack --output pkg
+      - name: Push Package to NuGet.org
+        working-directory: pkg
+        run: dotnet nuget push *.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_PUSHKEY --skip-duplicate
