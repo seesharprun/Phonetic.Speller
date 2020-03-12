@@ -2,7 +2,7 @@
 
 ![Create NuGet Package](https://github.com/seesharprun/Phonetic.Speller/workflows/Create%20NuGet%20Package/badge.svg?branch=master)
 
-This library translates one or more words to the | NATO phonetic alphabet](https://en.wikipedia.org/wiki/NATO_phonetic_alphabet).
+This library translates one or more words to the [NATO phonetic alphabet](https://en.wikipedia.org/wiki/NATO_phonetic_alphabet).
 
 ## Getting Started
 
