@@ -15,19 +15,10 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
+      - name: Publish Library
+        run: dotnet publish --configuration Release --output out /p:PublishAsSingleFile=true /p:IncludeSymbolsInSingleFile=true
       - name: Create NuGet Package
         run: dotnet pack --output pkg
       - name: Push Package to NuGet.org
         working-directory: pkg
         run: dotnet nuget push *.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_PUSHKEY --skip-duplicate
-      - name: Parse Project XML
-        id: parse_xml
-        uses: mavrosxristoforos/get-xml-info@1.0
-        with:
-          xml-file: Phonetic.Speller.csproj
-          xpath: //Project//PropertyGroup//Version
-      - name: Create Release
-        uses: actions/create-release@latest
-        with:
-          tag_name: ${{ steps.parse_xml.outputs.info }}
-          release_name: Version ${{ steps.parse_xml.outputs.info }}
