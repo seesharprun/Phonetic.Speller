@@ -22,4 +22,5 @@ jobs:
         with:
           xml-file: Phonetic.Speller.csproj
           xpath: //Project//PropertyGroup//Version
-      - run: echo 'Version: ${{ steps.getxml.outputs.info }}'
+      - name: Print Version
+        run: echo 'Version ${{ steps.getxml.outputs.info }}'
