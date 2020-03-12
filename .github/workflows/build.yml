@@ -13,4 +13,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: dotnet pack --output pkg
-      - run: dotnet nuget push .\pkg\*.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_PUSHKEY --skip-duplicate
+      - run: dotnet nuget push pkg\*.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_PUSHKEY --skip-duplicate
