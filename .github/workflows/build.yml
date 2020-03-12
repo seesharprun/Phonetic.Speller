@@ -23,5 +23,8 @@ jobs:
         with:
           xml-file: Phonetic.Speller.csproj
           xpath: //Project//PropertyGroup//Version
-      - name: Print Version
-        run: echo 'Version ${{ steps.parse_xml.outputs.info }}'
+      - name: Create Release
+        uses: actions/create-release@latest
+        with:
+          tag_name: ${{ steps.parse_xml.outputs.info }}
+          release_name: Version ${{ steps.parse_xml.outputs.info }}
