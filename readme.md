@@ -8,13 +8,13 @@ This library translates one or more words to the [NATO phonetic alphabet](https:
 
 Import the package from NuGet:
 
-```
+```sh
 dotnet add package Phonetic.Speller
 ```
 
 Use the library in your application by using the ``Phonetic.Speller.PhoneticSpeller`` class.
 
-```
+```csharp
 using Phonetic.Speller;
 
 public class Program
